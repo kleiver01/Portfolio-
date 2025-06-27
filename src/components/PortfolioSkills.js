@@ -1,0 +1,50 @@
+import React from 'react';
+ 
+const PortfolioSkills = () => {
+  const skills = [
+    { name: 'HTML', level: 'Experto', color: 'orange' },
+    { name: 'CSS', level: 'Experto', color: 'blue' },
+    { name: 'JavaScript', level: 'Avanzado', color: 'yellow' },
+    { name: 'React', level: 'Experto', color: 'cyan' }, // Cambiado a cyan para React
+  ];
+ 
+  const getColorClass = (color) => {
+    switch (color) {
+      case 'blue': return 'bg-blue-600';
+      case 'yellow': return 'bg-yellow-500';
+      case 'orange': return 'bg-orange-500';
+      case 'cyan': return 'bg-cyan-500'; // Nuevo color para React
+      default: return 'bg-gray-600';
+    }
+  };
+ 
+  return (
+    <div className="p-10 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-2xl border border-gray-700 transform translate-y-4 opacity-0 animate-fade-in-up group">
+      <h2 className="text-5xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 animate-text-glow">
+        &lt;Habilidades /&gt;
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"> {/* Ajustado a 2 columnas */}
+        {skills.map((skill, index) => (
+          <div
+            key={index}
+            className={`relative p-6 rounded-xl shadow-lg border border-gray-700 overflow-hidden
+                       transform hover:scale-105 transition-all duration-300 group
+                       ${getColorClass(skill.color)}`}
+          >
+            <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-20 transition-opacity duration-300"></div>
+            <h3 className="relative text-3xl font-bold mb-2 text-white z-10">{skill.name}</h3>
+            <p className="relative text-lg text-gray-200 z-10">{skill.level}</p>
+            <div className="absolute bottom-0 left-0 w-full h-2 bg-gray-700">
+              <div
+                className={`h-full ${getColorClass(skill.color)}`}
+                style={{ width: skill.level === 'Experto' ? '100%' : skill.level === 'Avanzado' ? '75%' : '50%' }}
+              ></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+ 
+export default PortfolioSkills;
