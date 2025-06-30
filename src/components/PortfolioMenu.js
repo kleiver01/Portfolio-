@@ -12,18 +12,18 @@ const PortfolioMenu = ({ currentPage, setCurrentPage }) => {
   const navigateSound = useRef(null);
  
   useEffect(() => {
-    // Sonidos más cortos y menos ruidosos
-    selectSound.current = new Audio('https://www.soundjay.com/buttons/button-3.mp3'); // Sonido de selección más suave
-    navigateSound.current = new Audio('https://www.soundjay.com/buttons/button-4.mp3'); // Sonido de navegación más suave
+   
+    selectSound.current = new Audio('https://www.soundjay.com/buttons/button-3.mp3'); // Sonido mause
+    navigateSound.current = new Audio('https://www.soundjay.com/buttons/button-3.mp3'); // Sonido flechas del teclado
  
-    // Ajustar volumen
+    
     if (selectSound.current) selectSound.current.volume = 0.3;
     if (navigateSound.current) navigateSound.current.volume = 0.3;
   }, []);
  
   const playSound = (audioRef) => {
     if (audioRef.current) {
-      audioRef.current.currentTime = 0; // Reiniciar el sonido para que se pueda reproducir rápidamente
+      audioRef.current.currentTime = 0; // Reiniciar sonido
       audioRef.current.play();
     }
   };
