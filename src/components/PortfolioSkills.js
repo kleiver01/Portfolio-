@@ -2,10 +2,11 @@ import React from 'react';
  
 const PortfolioSkills = () => {
   const skills = [
-    { name: 'HTML', level: 'Experto', color: 'orange' },
-    { name: 'CSS', level: 'Experto', color: 'blue' },
-    { name: 'JavaScript', level: 'Avanzado', color: 'yellow' },
-    { name: 'React', level: 'Experto', color: 'cyan' }, // Cambiado a cyan para React
+    { name: 'HTML', level: 'Avanzado', color: 'orange' }, // Cambiado a Avanzado
+    { name: 'CSS', level: 'Intermedio', color: 'blue' }, // Cambiado a Intermedio
+    { name: 'CSS4', level: 'Intermedio', color: 'indigo' }, // Cambiado a Intermedio
+    { name: 'JavaScript', level: 'Intermedio', color: 'yellow' }, // Cambiado a Intermedio
+    { name: 'React', level: 'Intermedio', color: 'cyan' }, // Cambiado a Intermedio
   ];
  
   const getColorClass = (color) => {
@@ -13,7 +14,8 @@ const PortfolioSkills = () => {
       case 'blue': return 'bg-blue-600';
       case 'yellow': return 'bg-yellow-500';
       case 'orange': return 'bg-orange-500';
-      case 'cyan': return 'bg-cyan-500'; // Nuevo color para React
+      case 'cyan': return 'bg-cyan-500';
+      case 'indigo': return 'bg-indigo-600';
       default: return 'bg-gray-600';
     }
   };
@@ -23,7 +25,7 @@ const PortfolioSkills = () => {
       <h2 className="text-5xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 animate-text-glow">
         &lt;Habilidades /&gt;
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"> {/* Ajustado a 2 columnas */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         {skills.map((skill, index) => (
           <div
             key={index}

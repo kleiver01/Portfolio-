@@ -1,29 +1,43 @@
 import React from 'react';
- 
+
+// Importa las imágenes
+import JewelersImg from '../image/Jewelers.png';
+import TierMakerImg from '../image/Tier-maker.png';
+import WikipediaImg from '../image/Wikipedia-vegetta777.png';
+import ArkanoidImg from '../image/Arkanoid-game.png';
+
 const PortfolioProjects = () => {
   const projects = [
     { 
       name: 'Jewelers', 
-      description: 'Una tienda online especializada en la venta de relojes de lujo. La página fue diseñada con un enfoque elegante y minimalista, destacando imágenes de alta calidad, descripciones detalladas y una navegación intuitiva.',
-      link: 'https://kleiver01.github.io/11-watches/'
+      description: 'Tienda online de relojes de lujo con diseño elegante y navegación intuitiva.',
+      link: 'https://kleiver01.github.io/11-watches/',
+      device: 'PC/Móvil',
+      image: JewelersImg
     },
     { 
       name: 'Tier Maker', 
-      description: 'una aplicación web interactiva diseñada para que los usuarios puedan crear, personalizar y compartir rankings visuales al estilo tier-maker.', 
-      link: 'https://kleiver01.github.io/10-tier-maker/'
+      description: 'App web para crear y compartir rankings visuales tipo tier-maker.', 
+      link: 'https://kleiver01.github.io/10-tier-maker/',
+      device: 'PC/Móvil',
+      image: TierMakerImg
     },
     { 
       name: 'wikipedia-vegeta777', 
-      description: 'Una plataforma web inspirada en el estilo y funcionalidad de Wikipedia, diseñada para que los usuarios puedan consultar, crear y editar artículos informativos de forma colaborativa.',
-      link: 'https://kleiver01.github.io/Wikipedia-Vegetta777/'
+      description: 'Plataforma colaborativa inspirada en Wikipedia para crear y editar artículos.',
+      link: 'https://kleiver01.github.io/Wikipedia-Vegetta777/',
+      device: 'PC/Móvil',
+      image: WikipediaImg
     },
     { 
       name: 'Arkanoid-game', 
-      description: 'Es un juego web inspirado en el clásico Arkanoid Ofrece una experiencia retro donde el jugador controla una paleta para hacer rebotar la pelota y destruir bloques.',
-      link: 'https://kleiver01.github.io/08-arkanoid-game/'
+      description: 'Juego web retro inspirado en el clásico Arkanoid.',
+      link: 'https://kleiver01.github.io/08-arkanoid-game/',
+      device: 'PC',
+      image: ArkanoidImg
     },
   ];
- 
+
   return (
     <div className="p-10 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-2xl border border-gray-700 transform translate-y-4 opacity-0 animate-fade-in-up group">
       <h2 className="text-5xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 animate-text-glow">
@@ -38,6 +52,20 @@ const PortfolioProjects = () => {
                        before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-purple-500 before:to-pink-500 before:opacity-0 before:transition-opacity before:duration-500
                        hover:before:opacity-20"
           >
+            {/* Mini letrero de dispositivo */}
+            <div className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-xs font-bold shadow-md
+              ${project.device === 'PC' 
+                ? 'bg-yellow-500 text-white' 
+                : 'bg-green-500 text-white'}`}>
+              {project.device}
+            </div>
+            {/* Imagen del proyecto */}
+            <div className="mb-4 w-full h-40 bg-gray-600 rounded-lg flex items-center justify-center overflow-hidden">
+              {project.image 
+                ? <img src={project.image} alt={project.name} className="object-cover w-full h-full" />
+                : <span className="text-gray-300 text-sm">Imagen del proyecto</span>
+              }
+            </div>
             <h3 className="text-3xl font-bold mb-3 text-white relative z-10">{project.name}</h3>
             <p className="text-lg text-gray-300 relative z-10">{project.description}</p>
             <a
